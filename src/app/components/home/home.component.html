@@ -1,0 +1,95 @@
+<div class="add">
+    <button (click)="save(row)">Add item</button>
+</div>
+<div class="cont">
+	<mat-table #table [dataSource]="dataSource" class="person-table"
+    matSort matSortActive="name" matSortDisableClear matSortDirection="asc">
+
+        <ng-container matColumnDef="firstName">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.firstName }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Age</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.lastName }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.email }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="department">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Department</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.department }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dui">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>DUI</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.dui }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="lenguages">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Lenguages</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.lenguages }}</mat-cell>
+        </ng-container>
+
+         <ng-container matColumnDef="cellphone">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Cellphone</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.cellphone }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="hireOn">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Hire on</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.hireOn }}</mat-cell>
+        </ng-container>
+
+        <!-- actions 
+        <ng-container matColumnDef="_id">
+            <mat-header-cell *matHeaderCellDef>
+                Actions
+            </mat-header-cell>
+
+            <mat-cell *matCellDef="let row">
+                <div class="button-row">
+                    <a mat-icon-button color='accent' (click)="edit(row)">
+                        <mat-icon aria-label="Edit">create</mat-icon>
+                    </a>
+                    <a mat-icon-button color='warn' (click)="delete(row)">
+                        <mat-icon aria-label="Delete">clear</mat-icon>
+                    </a>
+                </div>
+            </mat-cell>
+        </ng-container>-->
+
+        <ng-container matColumnDef="_id">
+            <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+
+            <mat-cell *matCellDef="let row">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="delete(row)">
+                        <mat-icon>delete</mat-icon>
+                        <span>Delete</span>
+                    </button>
+                    <button mat-menu-item (click)="edit(row)">
+                        <mat-icon>mode_edit</mat-icon>
+                        <span>Modify</span>
+                    </button>
+                </mat-menu>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator 
+        [pageSizeOptions]="pageSizeOptions" 
+        [length]="totalItems" 
+        [pageSize]="pageSize"
+        (page)="onPaginateChange($event)">
+    </mat-paginator>
+</div>

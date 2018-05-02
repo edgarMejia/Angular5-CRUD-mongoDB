@@ -1,0 +1,8 @@
+
+mat-form-field {width: 100%;}
+.mat-dialog-content {
+    .mat-dialog-content
+    max-height: 90vh !important;
+    display: contents!important;
+}
+.button-row {margin-top: 2vh;text-align: right;}

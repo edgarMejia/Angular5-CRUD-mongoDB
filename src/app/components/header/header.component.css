@@ -1,0 +1,31 @@
+.a {
+	display: inline;
+}
+
+.logo {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.avatar {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+.text {
+	margin-left: 10px;
+	text-decoration: underline;
+}
+
+.header-menu ul {
+	background-color: #112a4d;
+	padding-top: 10px!important;
+	text-align: center;
+	color: #f37c61;
+	height: 30px;
+}
+
+.header-menu li {
+	display: inline;
+	margin-right: 10px;
+}

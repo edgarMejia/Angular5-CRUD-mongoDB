@@ -1,0 +1,146 @@
+
+<h1 mat-dialog-title> {{ data.title }}</h1>
+<mat-dialog-content>
+    <form [formGroup]="frm" (ngSubmit)='save(frm)'>
+        <mat-form-field>
+            <input matInput type="text" placeholder="First Name" formControlName="firstName" class="person-input">
+            <mat-hint align="end">{{frm.controls.firstName.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="frm.controls.firstName.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <br/><br/>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Last Name" formControlName='lastName'>
+            <mat-hint align="end">{{frm.controls.lastName.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="frm.controls.lastName.invalid">{{getLastNameErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <br/><br/>
+
+        <mat-form-field>
+            <input matInput type="email" placeholder="Email" formControlName='email'>
+            <mat-hint align="end">{{frm.controls.email.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="frm.controls.email.invalid">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <br/><br/>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Department" formControlName='department'>
+            <mat-hint align="end">{{frm.controls.department.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="frm.controls.department.invalid">{{getDepartmentErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <br/><br/>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="DUI" formControlName='dui'>
+            <mat-hint align="end">{{frm.controls.dui.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="frm.controls.dui.invalid">{{getDuiErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <br/><br/>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="NIT" formControlName='nit'>
+            <mat-hint align="end">{{frm.controls.nit.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="frm.controls.nit.invalid">{{getNitErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <br/><br/>
+
+        <mat-form-field>
+            <input matInput type="number" placeholder="Cellphone" formControlName='cellphone'>
+            <mat-hint align="end">{{frm.controls.cellphone.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="frm.controls.cellphone.invalid">{{getCellphoneErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <br/><br/>
+
+        <mat-form-field>
+            <input matInput type="number" placeholder="Telephone" formControlName='telephone'>
+            <mat-hint align="end">{{frm.controls.telephone.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="frm.controls.telephone.invalid">{{getTelephoneErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <br/><br/>
+
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Birth date" formControlName='birthDate'>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="frm.controls.birthDate.invalid">{{getBirthDateErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <br/><br/>
+
+        <mat-radio-group formControlName='gender'>
+            <label>Gender: </label>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-error *ngIf="frm.controls.gender.invalid">{{getGenderErrorMessage()}}</mat-error>
+        </mat-radio-group>
+
+        <br/><br/>
+
+        <mat-form-field>
+        <mat-select placeholder="Select Lenguage" formControlName='lenguages'>
+            <mat-option value="Spanish">
+                Spanish
+            </mat-option>
+            <mat-option value="English">
+                English
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="frm.controls.lenguages.invalid">{{getLenguagesErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <br/><br/>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Address" formControlName='address'>
+            <mat-hint align="end">{{frm.controls.address.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="frm.controls.address.invalid">{{getAddressErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <br/><br/>
+
+        <mat-form-field>
+            <input matInput type="number" placeholder="Emergency Contact" formControlName='emergencyContact'>
+            <mat-hint align="end">{{frm.controls.emergencyContact.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="frm.controls.emergencyContact.invalid">{{getEmergencyContactErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <br/><br/>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Licence Number" formControlName='licenceNumber'>
+            <mat-hint align="end">{{frm.controls.licenceNumber.value?.length || 0}}/10</mat-hint>
+            <mat-error *ngIf="frm.controls.licenceNumber.invalid">{{getLicenceNumberErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <br/><br/>
+
+        <mat-form-field>
+            <input matInput [matDatepicker]="pickerTwo" placeholder="Hire On" formControlName='hireOn'>
+            <mat-datepicker-toggle matSuffix [for]="pickerTwo"></mat-datepicker-toggle>
+            <mat-datepicker #pickerTwo></mat-datepicker>
+            <mat-error *ngIf="frm.controls.hireOn.invalid">{{getHireOnErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <br/><br/>
+
+        <mat-form-field style="visibility: hidden; height: 0vh !important">
+            <input matInput type="text" formControlName='_id'>
+        </mat-form-field>
+
+        <div class="button-row">
+            <button mat-button [mat-dialog-close]>Cancel</button>
+            <button mat-raised-button color="primary" type="submit" class="btnSave" [disabled]="!frm.valid">
+                <mat-icon aria-label="icon-button">save</mat-icon>
+                <span>Save</span>
+            </button>
+        </div>
+    </form>
+</mat-dialog-content>

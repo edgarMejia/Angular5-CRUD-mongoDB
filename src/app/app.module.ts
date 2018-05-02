@@ -3,13 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialComponentsModule } from './utils/material.module'
-
-// ROUTES:
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './utils/app-routing.module';
 
 import { PersonService } from './services/person.service';
 

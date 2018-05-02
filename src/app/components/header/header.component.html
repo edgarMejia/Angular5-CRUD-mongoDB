@@ -1,7 +1,7 @@
 <div class="header">
 	<img class="a logo" src="https://storage.googleapis.com/br-web-resources/large-logo.png" width="300px">
 	<p class="a text">Human Resources Management</p>
-	<img class="a avatar" src="https://storage.googleapis.com/br-web-resources/photo.jpg" width="50px">
+	<img class="a avatar" src="https://storage.googleapis.com/br-web-resources/photo.jpg" width="50px" [matMenuTriggerFor]="menu">
 </div>
 
 <div class="header-menu">
@@ -12,3 +12,18 @@
 		<li>Settings</li>
 	</ul>
 </div>
+
+<mat-menu #menu="matMenu">
+	<div class="menu2">
+		<table>
+			<tr>
+				<td rowspan="2"><img src="https://storage.googleapis.com/br-web-resources/photo.jpg" width="50px"></td>
+				<td style="font-weight: bold;">Edwin Mendoza</td>
+			</tr>
+			<tr>
+				<td>edwinm@betterride.io</td>
+			</tr>
+		</table>
+	</div>
+  <button>Logout</button>
+</mat-menu>

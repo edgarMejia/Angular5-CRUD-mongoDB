@@ -4,5 +4,6 @@ mat-form-field {width: 100%;}
     .mat-dialog-content
     max-height: 90vh !important;
     display: contents!important;
+    font-family: Arial;
 }
 .button-row {margin-top: 2vh;text-align: right;}

@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // LAYOUT
-import { LayoutComponent } from './components/layout/layout.component';
+import { LayoutComponent } from '../components/layout/layout.component';
 
 // PAGES:
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from '../components/home/home.component';
 
 // ROUTES:
 const routes: Routes = [

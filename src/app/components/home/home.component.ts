@@ -105,18 +105,7 @@ export class HomeComponent implements AfterViewInit {
         ).subscribe(data => this.dataSource.data = data);
     }
 
-    // EDIT PERSONS
-    edit(row:Person):void {
-        let dialogRef = this.dialog.open(FormComponent, {
-            height: '98%',
-            width: '600px',
-            data: { title: 'MODIFICAR REGISTRO', action: 'edit', data:row}
-        });
-        dialogRef.afterClosed().subscribe(result => {
-            if(result)
-                this.paginator._changePageSize(this.paginator.pageSize);
-        });
-    }
+    
 
     // SAVE PERSONS
     save():void {
@@ -131,13 +120,39 @@ export class HomeComponent implements AfterViewInit {
         });
     }
 
+    // EDIT PERSONS
+    view(row:Person):void {
+        let dialogRef = this.dialog.open(FormComponent, {
+            height: '98%',
+            width: '600px',
+            data: { title: 'SEE RECORD', action: 'view', data:row}
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if(result)
+                this.paginator._changePageSize(this.paginator.pageSize);
+        });
+    }
+
+    // EDIT PERSONS
+    edit(row:Person):void {
+        let dialogRef = this.dialog.open(FormComponent, {
+            height: '98%',
+            width: '600px',
+            data: { title: 'EDIT RECORD', action: 'edit', data:row}
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if(result)
+                this.paginator._changePageSize(this.paginator.pageSize);
+        });
+    }
+
     // DELETE PERSONS
     delete(row: Person){
         let dialogRef = this.dialog.open(ConfirmComponent, {
             width: '250px',
             data: { 
-                title: 'Confirme la acción',
-                message: '¿Seguro que desea eliminar este registro?'
+                title: 'Confirm the action',
+                message: 'Are you sure you want to delete this record?'
             }
         });
         dialogRef.afterClosed().subscribe(result => {

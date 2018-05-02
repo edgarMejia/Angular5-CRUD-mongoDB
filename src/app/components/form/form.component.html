@@ -26,10 +26,20 @@
 
         <br/><br/>
 
-        <mat-form-field>
+        <!--<mat-form-field>
             <input matInput type="text" placeholder="Department" formControlName='department'>
             <mat-hint align="end">{{frm.controls.department.value?.length || 0}}/10</mat-hint>
             <mat-error *ngIf="frm.controls.department.invalid">{{getDepartmentErrorMessage()}}</mat-error>
+        </mat-form-field>-->
+
+        <mat-form-field>
+        <mat-select placeholder="Select your Department" formControlName='department'>
+            <mat-option value="Programming">Programming</mat-option>
+            <mat-option value="Marketing">Marketing</mat-option>
+            <mat-option value="Customer Support">Customer Support</mat-option>
+            <mat-option value="Accounting">Accounting</mat-option>
+        </mat-select>
+        <mat-error *ngIf="frm.controls.department.invalid">{{getDepartmentErrorMessage()}}</mat-error>
         </mat-form-field>
 
         <br/><br/>
@@ -135,7 +145,7 @@
             <input matInput type="text" formControlName='_id'>
         </mat-form-field>
 
-        <div class="button-row">
+        <div class="button-row" *ngIf="!view">
             <button mat-button [mat-dialog-close]>Cancel</button>
             <button mat-raised-button color="primary" type="submit" class="btnSave" [disabled]="!frm.valid">
                 <mat-icon aria-label="icon-button">save</mat-icon>

@@ -11,8 +11,8 @@ import { SnackbarComponent } from '../../components/snackbar/snackbar.component'
 })
 
 export class FormComponent {
+    view:any;
     frm:FormGroup;
-
     constructor(
         public dialogRef: MatDialogRef<FormComponent>,
         @Inject(MAT_DIALOG_DATA)
@@ -68,6 +68,26 @@ export class FormComponent {
                 licenceNumber: new FormControl(this.data.data.licenceNumber, [Validators.required, Validators.minLength(10)]),
                 hireOn: new FormControl(this.data.data.hireOn, [Validators.required]),
                 _id: new FormControl(this.data.data.hireOn)
+            });
+        }else if(this.data.action=='view'){
+            this.view = true;
+            this.frm = this.fb.group({
+                firstName: new FormControl({value: this.data.data.firstName, disabled: true}),
+                lastName: new FormControl({value: this.data.data.lastName, disabled: true}),
+                email: new FormControl({value: this.data.data.email, disabled: true}),
+                department: new FormControl({value: this.data.data.department, disabled: true}),
+                dui: new FormControl({value: this.data.data.dui, disabled: true}),
+                nit: new FormControl({value: this.data.data.nit, disabled: true}),
+                cellphone: new FormControl({value: this.data.data.cellphone, disabled: true}),
+                telephone: new FormControl({value: this.data.data.telephone, disabled: true}),
+                birthDate: new FormControl({value: this.data.data.birthDate, disabled: true}),
+                gender: new FormControl({value: this.data.data.gender, disabled: true}),
+                lenguages: new FormControl({value: this.data.data.lenguages, disabled: true}),
+                address: new FormControl({value: this.data.data.address, disabled: true}),
+                emergencyContact: new FormControl({value: this.data.data.emergencyContact, disabled: true}),
+                licenceNumber: new FormControl({value: this.data.data.licenceNumber, disabled: true}),
+                hireOn: new FormControl({value: this.data.data.hireOn, disabled: true}),
+                _id: new FormControl({value: this.data.data.hireOn})
             });
         }else{
             this.frm = new FormGroup({
